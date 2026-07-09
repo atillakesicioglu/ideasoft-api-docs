@@ -1,0 +1,16 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Ideasoft API",
+  "description": "Ideasoft e-ticaret platformu Admin API (903 endpoint), Store API (333 endpoint) ve Webhooks dokümantasyonu.",
+  "folders": ["docs", "openapi"],
+  "excludeFolders": ["scripts", ".cache"],
+  "rules": [
+    "Admin API base URL: https://magaza-adiniz.myideasoft.com/admin-api",
+    "Store API base URL: https://magaza-adiniz.myideasoft.com/api",
+    "Kimlik doğrulama OAuth 2.0 Client Credentials",
+    "Webhook HMAC header: X-Ideashop-Hmac-Sha256",
+    "Admin API detayları için docs/admin-api.md",
+    "Store API detayları için docs/store-api.md",
+    "Webhook event listesi için docs/webhooks.md"
+  ]
+}

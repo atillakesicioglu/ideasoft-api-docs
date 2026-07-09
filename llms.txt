@@ -1,0 +1,21 @@
+# Ideasoft API
+
+> Ideasoft e-ticaret platformu Admin API, Store API ve Webhooks dokümantasyonu.
+
+Base URL (Admin): `https://magaza-adiniz.myideasoft.com/admin-api`
+Base URL (Store): `https://magaza-adiniz.myideasoft.com/api`
+Kaynak: https://apidoc.ideasoft.dev
+
+## Docs
+
+- [Admin API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/admin-api.md): Yönetim paneli API (903 endpoint)
+- [Store API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/store-api.md): Mağaza vitrin API (333 endpoint)
+- [Webhooks](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/webhooks.md): Webhook bildirimleri
+- [Hızlı Başlangıç](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/QUICKSTART.md): İlk API çağrısı rehberi
+- [OpenAPI Specs](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/openapi/): Makine okunabilir kaynak dosyalar
+
+## API Grupları
+
+- **Admin API**: Ürün, sipariş, kategori, müşteri, kampanya ve tüm yönetim işlemleri
+- **Store API**: Mağaza vitrin tarafı (ürün listeleme, sepet, sipariş vb.)
+- **Webhooks**: Olay bazlı bildirimler ve entegrasyon

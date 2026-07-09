@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Ideasoft Webhooks
+  version: 1.0.0
+  description: '# Webhooks
+
+
+    Farklı uygulamalarımızın senkronize bir şekilde çalışabilmesi için uygulama içerisinde
+    oluşan olayları kendine entegre olmuş diğer uygulamalara bildirmek için kullanılan
+    bir teknolojidir. Belirli olaylar meydana geldikten sonra API çağrısı yapmak durumunda
+    kalmadan daha verimli ve hızlı bir şekilde haberleşme sağlanmış olur.
+
+
+    > Webhooklarda sadece değeri değişen alanlar gönderilmektedir. Farklı verilere
+    ihtiyacınız var ise "id" kullanarak API''ye istek atmanız beklenmektedir.
+
+
+    ## Kullanılan Webhooklar
+
+
+    | Events             | Topics                                                                 |
+    Fields (V8) |
+
+    |--------------------|------------------------------------------------------------------------|--------|
+
+    | brand              | `brand/create`, `brand/update`, `brand/delete`                         |
+    `id`, `name`, `slug`, `status`, `updatedAt`, `createdAt` |
+
+    | category           | `category/create`, `category/update`, `category/delete`                |
+    `id`, `name`, `slug`, `status`, `updatedAt`, `createdAt` |
+
+    | extra pref         | `extra_pref/update` | `exclude_tax_abroad` |
+
+    | member             | `member/create`, `member/update`, `member/delete`                      |
+    `id`, `firstname`, `surname`, `email`, `status`, `kvkkStatus`, `allowedToPhone`,
+    `allowedToCampaigns`, `allowedToSms`, `mobilePhoneNumber`, `address`, `location`,
+    `country`, `zipCode`, `lastIp`, `gender`, `birthDate`, `updatedAt`, `createdAt`
+    |
+
+    | member group       | `member_group/create`, `member_group/update`, `member_group/delete`    |
+    `id`, `name` |
+
+    | order              | `order/create`, `order/update`, `order/delete`                         |
+    `id`, `customerFirstname`, `customerSurname`, `status`, `amount`, `paymentStatus`,
+    `customerEmail`, `customerPhone`, `paymentTypeName`, `paymentProviderCode`, `paymentProviderName`,
+    `paymentGatewayCode`, `paymentGatewayName`, `bankName`, `currency`, `currencyRates`,
+    `couponDiscount`, `taxAmount`, `totalCustomTaxAmount`, `promotionDiscount'
+paths: {}
