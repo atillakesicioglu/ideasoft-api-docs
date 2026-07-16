@@ -1,0 +1,18 @@
+extends:
+  - recommended
+
+apis:
+  admin-api@latest:
+    root: openapi/domains/admin-api
+  store-api@latest:
+    root: openapi/domains/store-api
+
+rules:
+  no-unresolved-refs: warn
+  operation-operationId: warn
+  security-defined: off
+  info-license: off
+
+theme:
+  openapi:
+    generateCodeSamples: false

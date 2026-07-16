@@ -1,0 +1,449 @@
+{
+  "api": "store-api",
+  "domains": [
+    {
+      "name": "account-informations",
+      "file": "account-informations.json",
+      "operations": 1,
+      "paths": 1
+    },
+    {
+      "name": "billing-addresses",
+      "file": "billing-addresses.json",
+      "operations": 4,
+      "paths": 2
+    },
+    {
+      "name": "brands",
+      "file": "brands.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "cache",
+      "file": "cache.json",
+      "operations": 1,
+      "paths": 1
+    },
+    {
+      "name": "cart-items",
+      "file": "cart-items.json",
+      "operations": 3,
+      "paths": 2
+    },
+    {
+      "name": "carts",
+      "file": "carts.json",
+      "operations": 3,
+      "paths": 2
+    },
+    {
+      "name": "categories",
+      "file": "categories.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "combine-products",
+      "file": "combine-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "countries",
+      "file": "countries.json",
+      "operations": 3,
+      "paths": 2
+    },
+    {
+      "name": "currencies",
+      "file": "currencies.json",
+      "operations": 3,
+      "paths": 2
+    },
+    {
+      "name": "current-accounts",
+      "file": "current-accounts.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "distributor-to-products",
+      "file": "distributor-to-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "distributors",
+      "file": "distributors.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "extra-info-to-products",
+      "file": "extra-info-to-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "extra-infos",
+      "file": "extra-infos.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "favourited-products",
+      "file": "favourited-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "installment-rates",
+      "file": "installment-rates.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "label-to-products",
+      "file": "label-to-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "labels",
+      "file": "labels.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "locations",
+      "file": "locations.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "maillist-groups",
+      "file": "maillist-groups.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "maillists",
+      "file": "maillists.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "member-addresses",
+      "file": "member-addresses.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "member-groups",
+      "file": "member-groups.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "members",
+      "file": "members.json",
+      "operations": 7,
+      "paths": 4
+    },
+    {
+      "name": "option-groups",
+      "file": "option-groups.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "option-to-products",
+      "file": "option-to-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "options",
+      "file": "options.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "order-details",
+      "file": "order-details.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "order-items",
+      "file": "order-items.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "order-refund-request-items",
+      "file": "order-refund-request-items.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "order-refund-requests",
+      "file": "order-refund-requests.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "order-user-notes",
+      "file": "order-user-notes.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "orders",
+      "file": "orders.json",
+      "operations": 8,
+      "paths": 5
+    },
+    {
+      "name": "payment-gateways",
+      "file": "payment-gateways.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "payment-providers",
+      "file": "payment-providers.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "payments",
+      "file": "payments.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "pre-order-infos",
+      "file": "pre-order-infos.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "preferences",
+      "file": "preferences.json",
+      "operations": 3,
+      "paths": 2
+    },
+    {
+      "name": "product-buttons",
+      "file": "product-buttons.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-comments",
+      "file": "product-comments.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-details",
+      "file": "product-details.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-images",
+      "file": "product-images.json",
+      "operations": 4,
+      "paths": 2
+    },
+    {
+      "name": "product-prices",
+      "file": "product-prices.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-protections",
+      "file": "product-protections.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-special-infos",
+      "file": "product-special-infos.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-to-categories",
+      "file": "product-to-categories.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-to-count-downs",
+      "file": "product-to-count-downs.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "product-to-tags",
+      "file": "product-to-tags.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "products",
+      "file": "products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "purchase-limitation-items",
+      "file": "purchase-limitation-items.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "purchase-limitations",
+      "file": "purchase-limitations.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "quick-carts",
+      "file": "quick-carts.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "regions",
+      "file": "regions.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "script-tags",
+      "file": "script-tags.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "selection-groups",
+      "file": "selection-groups.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "selection-to-products",
+      "file": "selection-to-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "selections",
+      "file": "selections.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "shipment-items",
+      "file": "shipment-items.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "shipments",
+      "file": "shipments.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "shipping-addresses",
+      "file": "shipping-addresses.json",
+      "operations": 4,
+      "paths": 2
+    },
+    {
+      "name": "shipping-companies",
+      "file": "shipping-companies.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "shipping-providers",
+      "file": "shipping-providers.json",
+      "operations": 2,
+      "paths": 2
+    },
+    {
+      "name": "shipping-rates",
+      "file": "shipping-rates.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "shopping-experiences",
+      "file": "shopping-experiences.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "spec-groups",
+      "file": "spec-groups.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "spec-names",
+      "file": "spec-names.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "spec-to-products",
+      "file": "spec-to-products.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "spec-values",
+      "file": "spec-values.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "tags",
+      "file": "tags.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "themes",
+      "file": "themes.json",
+      "operations": 8,
+      "paths": 3
+    },
+    {
+      "name": "town-groups",
+      "file": "town-groups.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "towns",
+      "file": "towns.json",
+      "operations": 5,
+      "paths": 2
+    },
+    {
+      "name": "users",
+      "file": "users.json",
+      "operations": 2,
+      "paths": 2
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "apis": {
+    "admin-api": {
+      "root": "openapi/domains/admin-api/_index.json"
+    },
+    "store-api": {
+      "root": "openapi/domains/store-api/_index.json"
+    }
+  }
+}

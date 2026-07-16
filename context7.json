@@ -1,16 +1,17 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "Ideasoft API",
-  "description": "Ideasoft e-ticaret platformu Admin API (903 endpoint), Store API (333 endpoint) ve Webhooks dokümantasyonu.",
-  "folders": ["docs", "openapi"],
-  "excludeFolders": ["scripts", ".cache"],
+  "description": "Ideasoft e-ticaret platformu Admin API (903 op), Store API (333 op) ve Webhooks — unofficial community mirror.",
+  "folders": ["docs", "openapi/domains", "metadata"],
+  "excludeFolders": ["scripts", ".cache", "artifacts"],
   "rules": [
-    "Admin API base URL: https://magaza-adiniz.myideasoft.com/admin-api",
-    "Store API base URL: https://magaza-adiniz.myideasoft.com/api",
-    "Kimlik doğrulama OAuth 2.0 Client Credentials",
-    "Webhook HMAC header: X-Ideashop-Hmac-Sha256",
-    "Admin API detayları için docs/admin-api.md",
-    "Store API detayları için docs/store-api.md",
-    "Webhook event listesi için docs/webhooks.md"
+    "UNOFFICIAL community mirror — not affiliated with Ideasoft",
+    "Admin API: https://magaza-adiniz.myideasoft.com/admin-api",
+    "Store API: https://magaza-adiniz.myideasoft.com/api",
+    "Auth: OAuth 2.0 — see docs/AUTHENTICATION.md",
+    "Stats: metadata/stats.json",
+    "Capabilities: metadata/capabilities.yaml",
+    "MCP tools: metadata/mcp-tools-candidate.yaml",
+    "x-verification.status is documentation-only for all operations"
   ]
 }

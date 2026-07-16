@@ -1,0 +1,73 @@
+name: Weekly API Sync
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: pip install pyyaml requests
+
+      - name: Extract latest Ideasoft API docs
+        run: python scripts/build_pipeline.py --skip-lint
+
+      - name: Redocly lint domain specs
+        run: |
+          shopt -s nullglob
+          for f in openapi/domains/*/*.json; do
+            base=$(basename "$f")
+            [ "$base" = "_index.json" ] && continue
+            npx --yes @redocly/cli@latest lint "$f"
+          done
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/weekly-api-sync
+          delete-branch: true
+          commit-message: "chore: weekly Ideasoft API documentation sync"
+          title: "chore: weekly Ideasoft API documentation sync"
+          body: |
+            Automated weekly sync from [apidoc.ideasoft.dev](https://apidoc.ideasoft.dev).
+
+            - Updated domain-split OpenAPI specs
+            - Regenerated stats, capabilities, MCP candidates
+            - Updated CHANGELOG and endpoint diff report
+
+            Review `reports/endpoint-diff.md` before merging.
+          labels: |
+            automation
+            documentation
+
+      - name: Upload bundled release artifacts
+        if: github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: sync-${{ github.run_number }}
+          name: Bundled OpenAPI ${{ github.run_number }}
+          files: |
+            artifacts/bundled/admin-api.json
+            artifacts/bundled/admin-api.meta.json
+            artifacts/bundled/store-api.json
+            artifacts/bundled/store-api.meta.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,21 +1,26 @@
 # Ideasoft API
 
-> Ideasoft e-ticaret platformu Admin API, Store API ve Webhooks dokümantasyonu.
+> Community mirror of Ideasoft Admin API, Store API and Webhooks documentation.
+
+⚠️ **Unofficial community mirror** — see README.md.
 
 Base URL (Admin): `https://magaza-adiniz.myideasoft.com/admin-api`
 Base URL (Store): `https://magaza-adiniz.myideasoft.com/api`
-Kaynak: https://apidoc.ideasoft.dev
+Source: https://apidoc.ideasoft.dev
+
+## Stats (auto-generated)
+
+- Operations: 1236
+- Paths: 693
+- Schemas: 3991
+- Domains: 252
 
 ## Docs
 
-- [Admin API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/admin-api.md): Yönetim paneli API (903 endpoint)
-- [Store API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/store-api.md): Mağaza vitrin API (333 endpoint)
-- [Webhooks](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/webhooks.md): Webhook bildirimleri
-- [Hızlı Başlangıç](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/QUICKSTART.md): İlk API çağrısı rehberi
-- [OpenAPI Specs](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/openapi/): Makine okunabilir kaynak dosyalar
-
-## API Grupları
-
-- **Admin API**: Ürün, sipariş, kategori, müşteri, kampanya ve tüm yönetim işlemleri
-- **Store API**: Mağaza vitrin tarafı (ürün listeleme, sepet, sipariş vb.)
-- **Webhooks**: Olay bazlı bildirimler ve entegrasyon
+- [Authentication](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/AUTHENTICATION.md)
+- [Admin API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/admin-api.md)
+- [Store API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/store-api.md)
+- [Webhooks](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/webhooks.md)
+- [Capabilities](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/metadata/capabilities.yaml)
+- [Domain OpenAPI index](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/openapi/domains/)
+- [Bundled artifacts](https://github.com/atillakesicioglu/ideasoft-api-docs/releases/latest)

@@ -1,2 +1,2 @@
-openapi/admin-api.json filter=lfs diff=lfs merge=lfs -text
-openapi/store-api.json filter=lfs diff=lfs merge=lfs -text
+# Bundled artifacts tracked via GitHub Releases, not LFS
+# Domain-split specs in openapi/domains/ are regular git files

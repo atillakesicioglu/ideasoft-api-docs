@@ -1,0 +1,44 @@
+name: Validate OpenAPI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install pyyaml requests
+
+      - name: Build pipeline (from cache if available)
+        run: python scripts/build_pipeline.py --skip-extract --skip-lint
+
+      - name: Redocly lint domain specs
+        run: |
+          shopt -s nullglob
+          for f in openapi/domains/*/*.json; do
+            base=$(basename "$f")
+            [ "$base" = "_index.json" ] && continue
+            echo "Linting $f"
+            npx --yes @redocly/cli@latest lint "$f"
+          done
+          npx --yes @redocly/cli@latest lint openapi/webhooks.yaml
+
+      - name: Validate bundled artifact metadata
+        run: |
+          test -f artifacts/bundled/admin-api.json || (echo "Missing admin bundled artifact" && exit 1)
+          test -f metadata/stats.json || (echo "Missing stats.json" && exit 1)
+          python -c "import json; s=json.load(open('metadata/stats.json')); assert s['totals']['operations'] > 0"

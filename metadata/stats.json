@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-07-16T08:26:41Z",
+  "source": "https://apidoc.ideasoft.dev",
+  "apis": {
+    "admin-api": {
+      "operations": 903,
+      "paths": 541,
+      "schemas": 3075,
+      "domains": 178,
+      "title": "Ideashop API",
+      "version": "3.2.0"
+    },
+    "store-api": {
+      "operations": 333,
+      "paths": 152,
+      "schemas": 916,
+      "domains": 74,
+      "title": "Ideashop API",
+      "version": "3.2.0"
+    },
+    "webhooks": {
+      "operations": 0,
+      "paths": 0,
+      "schemas": 0,
+      "domains": 0,
+      "title": "Ideasoft Webhooks",
+      "version": "1.0.0"
+    }
+  },
+  "totals": {
+    "operations": 1236,
+    "paths": 693,
+    "schemas": 3991,
+    "domains": 252
+  }
+}
