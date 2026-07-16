@@ -1,0 +1,11 @@
+{
+  "name": "ideasoft-api-docs",
+  "private": true,
+  "scripts": {
+    "lint": "redocly lint --config redocly.yaml && npm run lint:domains",
+    "lint:domains": "node scripts/lint-domains.mjs"
+  },
+  "devDependencies": {
+    "@redocly/cli": "1.27.0"
+  }
+}

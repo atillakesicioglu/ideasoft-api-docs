@@ -1,532 +1,92 @@
-name: ideasoft-api
-title: Ideasoft E-Commerce API
+schema_version: '2.1'
 source: https://apidoc.ideasoft.dev
-mirror: https://github.com/atillakesicioglu/ideasoft-api-docs
-generated_at: '2026-07-16T08:26:41Z'
-verification: documentation-only
-apis:
-  admin-api:
-    title: Ideashop API
-    base_url_hint: https://magaza-adiniz.myideasoft.com/admin-api
-    operations: 903
-    paths: 541
-    schemas: 3075
-    domains:
-    - name: statistics
-      operations: 23
-    - name: report
-      operations: 13
-    - name: promotions
-      operations: 8
-    - name: editor-file-manager
-      operations: 6
-    - name: file-manager
-      operations: 6
-    - name: products
-      operations: 6
-    - name: shipments
-      operations: 6
-    - name: tracking-codes
-      operations: 6
-    - name: blog-categories
-      operations: 5
-    - name: labels
-      operations: 5
-    - name: languages
-      operations: 5
-    - name: menu-items
-      operations: 5
-    - name: brands
-      operations: 4
-    - name: categories
-      operations: 4
-    - name: category-mappings
-      operations: 4
-    - name: installment-rates
-      operations: 4
-    - name: maillists
-      operations: 4
-    - name: spec-groups
-      operations: 4
-    - name: themes
-      operations: 4
-    - name: town-groups
-      operations: 4
-    - name: banks
-      operations: 3
-    - name: banners
-      operations: 3
-    - name: billing-addresses
-      operations: 3
-    - name: blacklists
-      operations: 3
-    - name: blocks
-      operations: 3
-    - name: blog-tags
-      operations: 3
-    - name: blogs
-      operations: 3
-    - name: client-permissions
-      operations: 3
-    - name: client-webhooks
-      operations: 3
-    - name: clients
-      operations: 3
-    - name: closing-product
-      operations: 3
-    - name: collection
-      operations: 3
-    - name: combine-products
-      operations: 3
-    - name: contract-plans
-      operations: 3
-    - name: contracts
-      operations: 3
-    - name: countries
-      operations: 3
-    - name: coupons
-      operations: 3
-    - name: currencies
-      operations: 3
-    - name: current-accounts
-      operations: 3
-    - name: distributors
-      operations: 3
-    - name: draft-orders
-      operations: 3
-    - name: extra-info-to-products
-      operations: 3
-    - name: extra-infos
-      operations: 3
-    - name: extra-installments
-      operations: 3
-    - name: favourited-product
-      operations: 3
-    - name: filter-menus
-      operations: 3
-    - name: forms
-      operations: 3
-    - name: fraud-risks
-      operations: 3
-    - name: fraud-to-orders
-      operations: 3
-    - name: label-to-products
-      operations: 3
-    - name: locations
-      operations: 3
-    - name: maillist-groups
-      operations: 3
-    - name: member-addresses
-      operations: 3
-    - name: member-group-emails
-      operations: 3
-    - name: member-group-to-pos-accounts
-      operations: 3
-    - name: member-groups
-      operations: 3
-    - name: members
-      operations: 3
-    - name: merchant-polls
-      operations: 3
-    - name: midblocks
-      operations: 3
-    - name: net-gsm-logs
-      operations: 3
-    - name: notifications
-      operations: 3
-    - name: offered-products
-      operations: 3
-    - name: option-groups
-      operations: 3
-    - name: options
-      operations: 3
-    - name: order-details
-      operations: 3
-    - name: order-items
-      operations: 3
-    - name: order-refund-requests
-      operations: 3
-    - name: order-user-notes
-      operations: 3
-    - name: orders
-      operations: 3
-    - name: package-item-to-products
-      operations: 3
-    - name: package-items
-      operations: 3
-    - name: packages
-      operations: 3
-    - name: pages
-      operations: 3
-    - name: payment-bddk-category
-      operations: 3
-    - name: payment-gateway-settings
-      operations: 3
-    - name: payment-gateways
-      operations: 3
-    - name: payment-provider-settings
-      operations: 3
-    - name: payment-providers
-      operations: 3
-    - name: payment-proxies
-      operations: 3
-    - name: payment-proxy-settings
-      operations: 3
-    - name: payment-types
-      operations: 3
-    - name: payments
-      operations: 3
-    - name: point-logs
-      operations: 3
-    - name: polls
-      operations: 3
-    - name: popups
-      operations: 3
-    - name: pos-campaign-to-categories
-      operations: 3
-    - name: pos-campaign-to-products
-      operations: 3
-    - name: pos-campaigns
-      operations: 3
-    - name: pre-order-infos
-      operations: 3
-    - name: preferences
-      operations: 3
-    - name: price-gaps
-      operations: 3
-    - name: price-rules
-      operations: 3
-    - name: process-logs
-      operations: 3
-    - name: product-buttons
-      operations: 3
-    - name: product-comments
-      operations: 3
-    - name: product-customization-groups
-      operations: 3
-    - name: product-details
-      operations: 3
-    - name: product-extra-fields
-      operations: 3
-    - name: product-feeds
-      operations: 3
-    - name: product-images
-      operations: 3
-    - name: product-price-warnings
-      operations: 3
-    - name: product-prices
-      operations: 3
-    - name: product-protections
-      operations: 3
-    - name: product-special-infos
-      operations: 3
-    - name: product-to-categories
-      operations: 3
-    - name: product-to-collection
-      operations: 3
-    - name: product-to-count-downs
-      operations: 3
-    - name: product-to-tags
-      operations: 3
-    - name: promotion-bars
-      operations: 3
-    - name: purchase-limitation-items
-      operations: 3
-    - name: purchase-limitations
-      operations: 3
-    - name: questions
-      operations: 3
-    - name: quick-carts
-      operations: 3
-    - name: regions
-      operations: 3
-    - name: script-tags
-      operations: 3
-    - name: selection-groups
-      operations: 3
-    - name: selections
-      operations: 3
-    - name: seo-settings
-      operations: 3
-    - name: shipping-addresses
-      operations: 3
-    - name: shipping-companies
-      operations: 3
-    - name: shipping-provider-settings
-      operations: 3
-    - name: shipping-providers
-      operations: 3
-    - name: shipping-rates
-      operations: 3
-    - name: shopping-experiences
-      operations: 3
-    - name: sliders
-      operations: 3
-    - name: spec-names
-      operations: 3
-    - name: spec-values
-      operations: 3
-    - name: stock-warnings
-      operations: 3
-    - name: subscription-to-products
-      operations: 3
-    - name: subscriptions
-      operations: 3
-    - name: tabbed-midblock-to-products
-      operations: 3
-    - name: tabbed-midblocks
-      operations: 3
-    - name: tags
-      operations: 3
-    - name: tickets
-      operations: 3
-    - name: towns
-      operations: 3
-    - name: url-routings
-      operations: 3
-    - name: user-role-permissions
-      operations: 3
-    - name: user-roles
-      operations: 3
-    - name: users
-      operations: 3
-    - name: abandoned-carts
-      operations: 2
-    - name: abandoned-orders
-      operations: 2
-    - name: active-carts
-      operations: 2
-    - name: app-store
-      operations: 2
-    - name: checkout-design-pref
-      operations: 2
-    - name: common-pref
-      operations: 2
-    - name: custom-taxes
-      operations: 2
-    - name: customization-groups
-      operations: 2
-    - name: invoice-setting
-      operations: 2
-    - name: linked-accounts
-      operations: 2
-    - name: mail-accounts
-      operations: 2
-    - name: mail-content-translation
-      operations: 2
-    - name: merchant-poll-pref
-      operations: 2
-    - name: metafields
-      operations: 2
-    - name: net-gsm
-      operations: 2
-    - name: order-custom-tax-lines
-      operations: 2
-    - name: partnerships
-      operations: 2
-    - name: queue-processes
-      operations: 2
-    - name: shipment-pref
-      operations: 2
-    - name: acl-resources
-      operations: 1
-    - name: app-setting-pref
-      operations: 1
-    - name: bddk-categories
-      operations: 1
-    - name: blog-comment-pref
-      operations: 1
-    - name: carts
-      operations: 1
-    - name: common-file-translation
-      operations: 1
-    - name: dropdown-pref
-      operations: 1
-    - name: extra-pref
-      operations: 1
-    - name: help
-      operations: 1
-    - name: mail-contents
-      operations: 1
-    - name: page-settings
-      operations: 1
-    - name: partnership-url
-      operations: 1
-    - name: pixel-setting-pref
-      operations: 1
-    - name: point-pref
-      operations: 1
-    - name: search-engine-pref
-      operations: 1
-    - name: seo-pref
-      operations: 1
-    - name: site-contents
-      operations: 1
-    - name: sms-config
-      operations: 1
-    - name: smtp-pref
-      operations: 1
-    - name: user-logs
-      operations: 1
-  store-api:
-    title: Ideashop API
-    base_url_hint: https://magaza-adiniz.myideasoft.com/api
-    operations: 333
-    paths: 152
-    schemas: 916
-    domains:
-    - name: orders
-      operations: 5
-    - name: members
-      operations: 4
-    - name: themes
-      operations: 3
-    - name: billing-addresses
-      operations: 2
-    - name: brands
-      operations: 2
-    - name: cart-items
-      operations: 2
-    - name: carts
-      operations: 2
-    - name: categories
-      operations: 2
-    - name: combine-products
-      operations: 2
-    - name: countries
-      operations: 2
-    - name: currencies
-      operations: 2
-    - name: current-accounts
-      operations: 2
-    - name: distributor-to-products
-      operations: 2
-    - name: distributors
-      operations: 2
-    - name: extra-info-to-products
-      operations: 2
-    - name: extra-infos
-      operations: 2
-    - name: favourited-products
-      operations: 2
-    - name: installment-rates
-      operations: 2
-    - name: label-to-products
-      operations: 2
-    - name: labels
-      operations: 2
-    - name: locations
-      operations: 2
-    - name: maillist-groups
-      operations: 2
-    - name: maillists
-      operations: 2
-    - name: member-addresses
-      operations: 2
-    - name: member-groups
-      operations: 2
-    - name: option-groups
-      operations: 2
-    - name: option-to-products
-      operations: 2
-    - name: options
-      operations: 2
-    - name: order-details
-      operations: 2
-    - name: order-items
-      operations: 2
-    - name: order-refund-request-items
-      operations: 2
-    - name: order-refund-requests
-      operations: 2
-    - name: order-user-notes
-      operations: 2
-    - name: payment-gateways
-      operations: 2
-    - name: payment-providers
-      operations: 2
-    - name: payments
-      operations: 2
-    - name: pre-order-infos
-      operations: 2
-    - name: preferences
-      operations: 2
-    - name: product-buttons
-      operations: 2
-    - name: product-comments
-      operations: 2
-    - name: product-details
-      operations: 2
-    - name: product-images
-      operations: 2
-    - name: product-prices
-      operations: 2
-    - name: product-protections
-      operations: 2
-    - name: product-special-infos
-      operations: 2
-    - name: product-to-categories
-      operations: 2
-    - name: product-to-count-downs
-      operations: 2
-    - name: product-to-tags
-      operations: 2
-    - name: products
-      operations: 2
-    - name: purchase-limitation-items
-      operations: 2
-    - name: purchase-limitations
-      operations: 2
-    - name: quick-carts
-      operations: 2
-    - name: regions
-      operations: 2
-    - name: script-tags
-      operations: 2
-    - name: selection-groups
-      operations: 2
-    - name: selection-to-products
-      operations: 2
-    - name: selections
-      operations: 2
-    - name: shipment-items
-      operations: 2
-    - name: shipments
-      operations: 2
-    - name: shipping-addresses
-      operations: 2
-    - name: shipping-companies
-      operations: 2
-    - name: shipping-providers
-      operations: 2
-    - name: shipping-rates
-      operations: 2
-    - name: shopping-experiences
-      operations: 2
-    - name: spec-groups
-      operations: 2
-    - name: spec-names
-      operations: 2
-    - name: spec-to-products
-      operations: 2
-    - name: spec-values
-      operations: 2
-    - name: tags
-      operations: 2
-    - name: town-groups
-      operations: 2
-    - name: towns
-      operations: 2
-    - name: users
-      operations: 2
-    - name: account-informations
-      operations: 1
-    - name: cache
-      operations: 1
-  webhooks:
-    title: Ideasoft Webhooks
-    base_url_hint: Webhook bildirimleri
-    operations: 0
-    paths: 0
-    schemas: 0
-    domains: []
+verification_default: documentation-only
+capabilities:
+  products.list:
+    supported: true
+    verification_status: documentation-only
+    read_or_write: read
+    risk_level: low
+    mapped_operations:
+    - api: admin-api
+      method: GET
+      path: /admin-api/products
+      operation_id: 6hvi6as48mv56
+      summary: Product LIST
+    - api: store-api
+      method: GET
+      path: /api/products
+      operation_id: qsr9fu2u1lrlh
+      summary: Product LIST
+  products.create:
+    supported: true
+    verification_status: documentation-only
+    read_or_write: write
+    risk_level: medium
+    mapped_operations:
+    - api: admin-api
+      method: POST
+      path: /admin-api/products
+      operation_id: 8pzfiy7v4vow9
+      summary: Product POST
+  products.update:
+    supported: true
+    verification_status: documentation-only
+    read_or_write: write
+    risk_level: medium
+    mapped_operations:
+    - api: admin-api
+      method: PUT
+      path: /admin-api/products/{id}
+      operation_id: p7r7yfxlfjma9
+      summary: Product PUT
+    - api: store-api
+      method: PUT
+      path: /api/products/{id}
+      operation_id: vyvlvovhvs74f
+      summary: Product PUT
+  products.update_price:
+    supported: false
+    verification_status: documentation-only
+    read_or_write: write
+    risk_level: high
+    mapped_operations: []
+  inventory.read:
+    supported: true
+    verification_status: documentation-only
+    read_or_write: read
+    risk_level: low
+    mapped_operations: []
+  inventory.update:
+    supported: false
+    verification_status: documentation-only
+    read_or_write: write
+    risk_level: high
+    mapped_operations: []
+  orders.list:
+    supported: true
+    verification_status: documentation-only
+    read_or_write: read
+    risk_level: low
+    mapped_operations:
+    - api: admin-api
+      method: GET
+      path: /admin-api/orders
+      operation_id: taanqcwvy12qa
+      summary: Order LIST
+    - api: store-api
+      method: GET
+      path: /api/orders
+      operation_id: g7k3u91q8wzss
+      summary: Order LIST
+  orders.update_status:
+    supported: true
+    verification_status: documentation-only
+    read_or_write: write
+    risk_level: high
+    mapped_operations:
+    - api: admin-api
+      method: PUT
+      path: /admin-api/orders/{id}
+      operation_id: wdqlg4iwn7zt8
+      summary: Order PUT

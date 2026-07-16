@@ -4,9 +4,11 @@ __pycache__/
 .env
 .DS_Store
 Thumbs.db
+node_modules/
 
-# Bundled full specs — GitHub Release artifacts only
-artifacts/bundled/*.json
+# Bundled full specs — GitHub Release artifacts only (meta.json tracked for SHA256 CI)
+artifacts/bundled/admin-api.json
+artifacts/bundled/store-api.json
 
 # Legacy monolithic specs (use domains/ + artifacts/)
 openapi/admin-api.json

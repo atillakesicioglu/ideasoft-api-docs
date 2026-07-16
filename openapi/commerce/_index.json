@@ -1,0 +1,233 @@
+{
+  "generated_at": null,
+  "groups": [
+    {
+      "name": "products",
+      "file": "products.json",
+      "operations": 151,
+      "paths": 74,
+      "source_domains": [
+        "admin-api/products",
+        "store-api/products",
+        "admin-api/product-details",
+        "store-api/product-details",
+        "admin-api/product-images",
+        "store-api/product-images",
+        "admin-api/product-prices",
+        "store-api/product-prices",
+        "admin-api/product-buttons",
+        "store-api/product-buttons",
+        "admin-api/product-comments",
+        "store-api/product-comments",
+        "admin-api/product-protections",
+        "store-api/product-protections",
+        "admin-api/product-special-infos",
+        "store-api/product-special-infos",
+        "admin-api/product-to-categories",
+        "store-api/product-to-categories",
+        "admin-api/product-to-tags",
+        "store-api/product-to-tags",
+        "admin-api/product-to-count-downs",
+        "store-api/product-to-count-downs",
+        "admin-api/combine-products",
+        "store-api/combine-products",
+        "admin-api/offered-products",
+        "admin-api/closing-product",
+        "admin-api/favourited-product",
+        "store-api/favourited-products"
+      ]
+    },
+    {
+      "name": "catalog",
+      "file": "catalog.json",
+      "operations": 137,
+      "paths": 66,
+      "source_domains": [
+        "admin-api/categories",
+        "store-api/categories",
+        "admin-api/category-mappings",
+        "admin-api/brands",
+        "store-api/brands",
+        "admin-api/tags",
+        "store-api/tags",
+        "admin-api/labels",
+        "store-api/labels",
+        "admin-api/label-to-products",
+        "store-api/label-to-products",
+        "admin-api/collection",
+        "admin-api/spec-groups",
+        "store-api/spec-groups",
+        "admin-api/spec-names",
+        "store-api/spec-names",
+        "admin-api/spec-values",
+        "store-api/spec-values",
+        "store-api/spec-to-products",
+        "admin-api/option-groups",
+        "store-api/option-groups",
+        "admin-api/options",
+        "store-api/options",
+        "store-api/option-to-products"
+      ]
+    },
+    {
+      "name": "inventory",
+      "file": "inventory.json",
+      "operations": 19,
+      "paths": 13,
+      "source_domains": [
+        "admin-api/stock-warnings",
+        "admin-api/shipments",
+        "store-api/shipments",
+        "store-api/shipment-items"
+      ]
+    },
+    {
+      "name": "orders",
+      "file": "orders.json",
+      "operations": 103,
+      "paths": 61,
+      "source_domains": [
+        "admin-api/orders",
+        "store-api/orders",
+        "admin-api/order-details",
+        "store-api/order-details",
+        "admin-api/order-items",
+        "store-api/order-items",
+        "admin-api/order-refund-requests",
+        "store-api/order-refund-requests",
+        "store-api/order-refund-request-items",
+        "admin-api/order-user-notes",
+        "store-api/order-user-notes",
+        "admin-api/order-custom-tax-lines",
+        "admin-api/draft-orders",
+        "admin-api/payments",
+        "store-api/payments",
+        "admin-api/pre-order-infos",
+        "store-api/pre-order-infos",
+        "admin-api/quick-carts",
+        "store-api/quick-carts",
+        "admin-api/carts",
+        "store-api/carts",
+        "store-api/cart-items",
+        "admin-api/active-carts",
+        "admin-api/abandoned-carts",
+        "admin-api/abandoned-orders"
+      ]
+    },
+    {
+      "name": "customers",
+      "file": "customers.json",
+      "operations": 93,
+      "paths": 46,
+      "source_domains": [
+        "admin-api/members",
+        "store-api/members",
+        "admin-api/member-groups",
+        "store-api/member-groups",
+        "admin-api/member-addresses",
+        "store-api/member-addresses",
+        "admin-api/member-group-emails",
+        "admin-api/billing-addresses",
+        "store-api/billing-addresses",
+        "admin-api/shipping-addresses",
+        "store-api/shipping-addresses",
+        "admin-api/maillists",
+        "store-api/maillists",
+        "admin-api/maillist-groups",
+        "store-api/maillist-groups",
+        "admin-api/current-accounts",
+        "store-api/current-accounts"
+      ]
+    },
+    {
+      "name": "marketing",
+      "file": "marketing.json",
+      "operations": 53,
+      "paths": 29,
+      "source_domains": [
+        "admin-api/promotions",
+        "admin-api/promotion-bars",
+        "admin-api/coupons",
+        "admin-api/price-rules",
+        "admin-api/price-gaps",
+        "admin-api/pos-campaigns",
+        "admin-api/polls",
+        "admin-api/popups"
+      ]
+    },
+    {
+      "name": "content",
+      "file": "content.json",
+      "operations": 52,
+      "paths": 27,
+      "source_domains": [
+        "admin-api/blogs",
+        "admin-api/blog-categories",
+        "admin-api/blog-tags",
+        "admin-api/pages",
+        "admin-api/blocks",
+        "admin-api/banners",
+        "admin-api/sliders",
+        "admin-api/midblocks",
+        "admin-api/site-contents"
+      ]
+    },
+    {
+      "name": "shipping",
+      "file": "shipping.json",
+      "operations": 88,
+      "paths": 50,
+      "source_domains": [
+        "admin-api/shipping-companies",
+        "store-api/shipping-companies",
+        "admin-api/shipping-providers",
+        "store-api/shipping-providers",
+        "admin-api/shipping-rates",
+        "store-api/shipping-rates",
+        "admin-api/shipping-provider-settings",
+        "admin-api/tracking-codes",
+        "admin-api/towns",
+        "store-api/towns",
+        "admin-api/town-groups",
+        "store-api/town-groups",
+        "admin-api/regions",
+        "store-api/regions",
+        "admin-api/countries",
+        "store-api/countries",
+        "admin-api/locations",
+        "store-api/locations"
+      ]
+    },
+    {
+      "name": "analytics",
+      "file": "analytics.json",
+      "operations": 36,
+      "paths": 36,
+      "source_domains": [
+        "admin-api/statistics",
+        "admin-api/report"
+      ]
+    },
+    {
+      "name": "store-settings",
+      "file": "store-settings.json",
+      "operations": 56,
+      "paths": 32,
+      "source_domains": [
+        "admin-api/preferences",
+        "store-api/preferences",
+        "admin-api/themes",
+        "store-api/themes",
+        "admin-api/languages",
+        "admin-api/currencies",
+        "store-api/currencies",
+        "admin-api/common-pref",
+        "admin-api/extra-pref",
+        "admin-api/checkout-design-pref",
+        "admin-api/search-engine-pref",
+        "admin-api/seo-pref",
+        "admin-api/seo-settings"
+      ]
+    }
+  ]
+}

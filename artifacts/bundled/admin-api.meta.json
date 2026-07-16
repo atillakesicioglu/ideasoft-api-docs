@@ -1,0 +1,9 @@
+{
+  "file": "admin-api.json",
+  "sha256": "2366f826aead5e81b0b4b8c0b32e9abb6ca901e4e2e836dd5a08f99956cab6f3",
+  "bytes": 59723916,
+  "generated_at": "2026-07-16T08:43:49Z",
+  "operations": 903,
+  "paths": 541,
+  "schemas": 3075
+}

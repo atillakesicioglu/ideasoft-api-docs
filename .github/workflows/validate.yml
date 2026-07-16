@@ -20,25 +20,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Python dependencies
-        run: pip install pyyaml requests
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          npm ci
 
       - name: Build pipeline
         run: python scripts/build_pipeline.py --skip-lint
 
       - name: Redocly lint domain specs
-        run: |
-          shopt -s nullglob
-          for f in openapi/domains/*/*.json; do
-            base=$(basename "$f")
-            [ "$base" = "_index.json" ] && continue
-            echo "Linting $f"
-            npx --yes @redocly/cli@latest lint "$f"
-          done
-          npx --yes @redocly/cli@latest lint openapi/webhooks.yaml
+        run: npm run lint:domains
 
-      - name: Validate bundled artifact metadata
-        run: |
-          test -f artifacts/bundled/admin-api.json
-          test -f metadata/stats.json
-          python -c "import json; s=json.load(open('metadata/stats.json')); assert s['totals']['operations'] > 0"
+      - name: Quality gates
+        run: python scripts/validate_quality.py
+
+      - name: Ensure generated files are committed
+        run: git diff --exit-code

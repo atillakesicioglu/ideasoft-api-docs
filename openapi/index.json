@@ -1,10 +1,17 @@
 {
-  "apis": {
+  "raw_domains": {
     "admin-api": {
       "root": "openapi/domains/admin-api/_index.json"
     },
     "store-api": {
       "root": "openapi/domains/store-api/_index.json"
     }
+  },
+  "commerce_groups": {
+    "root": "openapi/commerce/_index.json"
+  },
+  "bundled_release": {
+    "admin-api": "artifacts/bundled/admin-api.json",
+    "store-api": "artifacts/bundled/store-api.json"
   }
 }

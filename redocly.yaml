@@ -3,16 +3,12 @@ extends:
 
 apis:
   admin-api@latest:
-    root: openapi/domains/admin-api
+    root: openapi/domains/admin-api/products.json
   store-api@latest:
-    root: openapi/domains/store-api
+    root: openapi/domains/store-api/products.json
 
 rules:
   no-unresolved-refs: warn
   operation-operationId: warn
   security-defined: off
   info-license: off
-
-theme:
-  openapi:
-    generateCodeSamples: false

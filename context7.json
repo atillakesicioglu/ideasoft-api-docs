@@ -1,17 +1,19 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "Ideasoft API",
-  "description": "Ideasoft e-ticaret platformu Admin API (903 op), Store API (333 op) ve Webhooks — unofficial community mirror.",
-  "folders": ["docs", "openapi/domains", "metadata"],
+  "description": "Ideasoft e-ticaret platformu Admin API (903 op), Store API (333 op) ve Webhooks — unofficial community mirror (v2.1).",
+  "folders": ["docs", "openapi/domains", "openapi/commerce", "metadata"],
   "excludeFolders": ["scripts", ".cache", "artifacts"],
   "rules": [
     "UNOFFICIAL community mirror — not affiliated with Ideasoft",
-    "Admin API: https://magaza-adiniz.myideasoft.com/admin-api",
-    "Store API: https://magaza-adiniz.myideasoft.com/api",
+    "Base URL: https://magaza-adiniz.myideasoft.com (Admin: /admin-api/..., Store: /api/...)",
     "Auth: OAuth 2.0 — see docs/AUTHENTICATION.md",
-    "Stats: metadata/stats.json",
-    "Capabilities: metadata/capabilities.yaml",
-    "MCP tools: metadata/mcp-tools-candidate.yaml",
+    "Three spec levels: openapi/domains (raw), openapi/commerce (grouped), artifacts/bundled (release)",
+    "Stats: metadata/stats.json, domain-stats.yaml",
+    "Capabilities matrix: metadata/capabilities.yaml",
+    "Curated MCP tools: metadata/commerce-tools.yaml",
+    "Raw MCP endpoint candidates: metadata/mcp-endpoint-candidates.yaml",
+    "access_token/base_url are runtime_configuration only — never in tool input",
     "x-verification.status is documentation-only for all operations"
   ]
 }

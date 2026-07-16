@@ -30,6 +30,16 @@ Format: automated sync entries are prepended by `scripts/build_pipeline.py`.
 - Paths: **693**
 - Schemas: **3991**
 - Domains: **252**
+- Added endpoints: 0
+- Removed endpoints: 0
+- Changed summaries: 0
+
+## [2026-07-16] — Automated sync
+
+- Operations: **1236**
+- Paths: **693**
+- Schemas: **3991**
+- Domains: **252**
 - Added endpoints: 1236
 - Removed endpoints: 0
 - Changed summaries: 0

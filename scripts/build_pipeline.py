@@ -15,8 +15,18 @@ from typing import Any
 
 import yaml
 
-# extract_docs modülünü yeniden kullan
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+# extract_docs ve lib modüllerini yeniden kullan
+_SCRIPTS = Path(__file__).resolve().parent
+sys.path.insert(0, str(_SCRIPTS))
+from lib.commerce_layer import build_commerce_layer  # noqa: E402
+from lib.constants import STORE_BASE_URL  # noqa: E402
+from lib.metadata_writers import (  # noqa: E402
+    write_capabilities_matrix,
+    write_commerce_tools,
+    write_domain_stats,
+    write_mcp_endpoint_candidates,
+)
+from lib.openapi_normalize import normalize_spec_urls  # noqa: E402
 from extract_docs import (  # noqa: E402
     PROJECTS,
     build_markdown,
@@ -136,7 +146,7 @@ def split_spec_by_domain(spec: dict, api_name: str) -> dict[str, dict]:
             "schemas": {k: all_schemas[k] for k in refs if k in all_schemas},
             "securitySchemes": all_components.get("securitySchemes", {}),
         }
-        result[domain] = {
+        domain_spec = {
             "openapi": spec.get("openapi", "3.0.0"),
             "info": {
                 **spec.get("info", {}),
@@ -149,6 +159,7 @@ def split_spec_by_domain(spec: dict, api_name: str) -> dict[str, dict]:
             "paths": chunk["paths"],
             "components": domain_components,
         }
+        result[domain] = normalize_spec_urls(domain_spec, api_name)
     return result
 
 
@@ -276,84 +287,6 @@ def update_changelog(diff: dict, stats: dict, path: Path) -> None:
     path.write_text(content, encoding="utf-8")
 
 
-def write_capabilities(stats: dict, specs: dict[str, dict], out_path: Path) -> None:
-    capabilities: dict[str, Any] = {
-        "name": "ideasoft-api",
-        "title": "Ideasoft E-Commerce API",
-        "source": SOURCE_URL,
-        "mirror": REPO_URL,
-        "generated_at": EXTRACTED_AT,
-        "verification": "documentation-only",
-        "apis": {},
-    }
-    for api_name, api_stats in stats["apis"].items():
-        spec = specs[api_name]
-        domain_counts = Counter()
-        for path in spec.get("paths", {}):
-            domain_counts[path_domain(api_name, path)] += 1
-        capabilities["apis"][api_name] = {
-            "title": api_stats.get("title"),
-            "base_url_hint": PROJECTS[api_name].get("base_path_note"),
-            "operations": api_stats["operations"],
-            "paths": api_stats["paths"],
-            "schemas": api_stats["schemas"],
-            "domains": [
-                {"name": name, "operations": count}
-                for name, count in sorted(domain_counts.items(), key=lambda x: (-x[1], x[0]))
-            ],
-        }
-    out_path.write_text(yaml.dump(capabilities, allow_unicode=True, sort_keys=False), encoding="utf-8")
-
-
-def write_mcp_tools_candidate(specs: dict[str, dict], out_path: Path, limit_per_api: int = 150) -> None:
-    tools: list[dict] = []
-    for api_name, spec in specs.items():
-        count = 0
-        for path, path_item in sorted(spec.get("paths", {}).items()):
-            if not isinstance(path_item, dict):
-                continue
-            for method, operation in path_item.items():
-                if method not in HTTP_METHODS or not isinstance(operation, dict):
-                    continue
-                if count >= limit_per_api:
-                    break
-                tool_name = slugify(f"ideasoft_{api_name}_{method}_{path}")[:64]
-                tools.append(
-                    {
-                        "name": tool_name,
-                        "description": operation.get("summary") or f"{method.upper()} {path}",
-                        "api": api_name,
-                        "method": method.upper(),
-                        "path": path,
-                        "operation_id": operation.get("operationId"),
-                        "input_schema": {
-                            "type": "object",
-                            "properties": {
-                                "base_url": {
-                                    "type": "string",
-                                    "description": PROJECTS[api_name].get("base_path_note", ""),
-                                },
-                                "access_token": {"type": "string"},
-                                "path_params": {"type": "object"},
-                                "query_params": {"type": "object"},
-                                "body": {"type": "object"},
-                            },
-                            "required": ["base_url", "access_token"],
-                        },
-                        "source": operation.get("x-source", {}),
-                        "verification": operation.get("x-verification", {}),
-                    }
-                )
-                count += 1
-    doc = {
-        "schema_version": "1.0",
-        "generated_at": EXTRACTED_AT,
-        "description": "MCP tool candidates derived from Ideasoft OpenAPI (community mirror).",
-        "tools": tools,
-    }
-    out_path.write_text(yaml.dump(doc, allow_unicode=True, sort_keys=False), encoding="utf-8")
-
-
 def save_json(path: Path, data: Any, compact: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
@@ -400,8 +333,9 @@ def run_redocly_lint(root: Path) -> bool:
     if not config.exists():
         return True
     try:
+        subprocess.run(["npm", "ci"], cwd=root, check=True, capture_output=True, text=True)
         subprocess.run(
-            ["npx", "--yes", "@redocly/cli@latest", "lint", "--config", str(config)],
+            ["npm", "run", "lint"],
             cwd=root,
             check=True,
             capture_output=True,
@@ -421,8 +355,8 @@ def build_llms_txt(stats: dict, root: Path) -> None:
 
 ⚠️ **Unofficial community mirror** — see README.md.
 
-Base URL (Admin): `https://magaza-adiniz.myideasoft.com/admin-api`
-Base URL (Store): `https://magaza-adiniz.myideasoft.com/api`
+Base URL: `{STORE_BASE_URL}`
+Admin paths: `/admin-api/...` | Store paths: `/api/...`
 Source: {SOURCE_URL}
 
 ## Stats (auto-generated)
@@ -438,9 +372,12 @@ Source: {SOURCE_URL}
 - [Admin API]({REPO_URL}/blob/main/docs/admin-api.md)
 - [Store API]({REPO_URL}/blob/main/docs/store-api.md)
 - [Webhooks]({REPO_URL}/blob/main/docs/webhooks.md)
-- [Capabilities]({REPO_URL}/blob/main/metadata/capabilities.yaml)
-- [Domain OpenAPI index]({REPO_URL}/blob/main/openapi/domains/)
-- [Bundled artifacts]({REPO_URL}/releases/latest)
+- [Capabilities matrix]({REPO_URL}/blob/main/metadata/capabilities.yaml)
+- [Commerce tools (curated MCP)]({REPO_URL}/blob/main/metadata/commerce-tools.yaml)
+- [MCP endpoint candidates (raw)]({REPO_URL}/blob/main/metadata/mcp-endpoint-candidates.yaml)
+- [Raw domain OpenAPI]({REPO_URL}/blob/main/openapi/domains/)
+- [Commerce grouped OpenAPI]({REPO_URL}/blob/main/openapi/commerce/)
+- [Bundled release specs]({REPO_URL}/releases/latest)
 """
     (root / "llms.txt").write_text(content, encoding="utf-8")
 
@@ -456,6 +393,7 @@ def main() -> None:
     cache_dir = root / ".cache" / "nodes"
     artifacts_dir = root / "artifacts" / "bundled"
     domains_dir = root / "openapi" / "domains"
+    commerce_dir = root / "openapi" / "commerce"
     metadata_dir = root / "metadata"
     reports_dir = root / "reports"
     docs_dir = root / "docs"
@@ -483,6 +421,9 @@ def main() -> None:
             if meta.get("service_slug"):
                 slug_map = build_slug_map(cache_dir, meta["project_id"])
                 attach_metadata_to_spec(spec, key, meta["project_id"], slug_map)
+
+        if key != "webhooks":
+            spec = normalize_spec_urls(spec, key)
             write_bundled_artifact(spec, artifacts_dir / f"{key}.json")
         specs[key] = spec
 
@@ -498,19 +439,32 @@ def main() -> None:
     diff = diff_endpoints(old_manifest, new_manifest)
     write_endpoint_diff_report(diff, reports_dir / "endpoint-diff.md")
     update_changelog(diff, stats, root / "CHANGELOG.md")
-    write_capabilities(stats, specs, metadata_dir / "capabilities.yaml")
-    write_mcp_tools_candidate(specs, metadata_dir / "mcp-tools-candidate.yaml")
+    write_domain_stats(specs, path_domain, metadata_dir / "domain-stats.yaml")
+    commerce_tools = write_commerce_tools(specs, metadata_dir / "commerce-tools.yaml")
+    write_capabilities_matrix(specs, commerce_tools, metadata_dir / "capabilities.yaml")
+    write_mcp_endpoint_candidates(specs, metadata_dir / "mcp-endpoint-candidates.yaml", slugify, limit_per_api=300)
+    build_commerce_layer(specs, domains_dir, commerce_dir)
     build_llms_txt(stats, root)
 
-    # openapi/index.yaml — domain entrypoints for Redocly
+    # openapi/index.json — raw domains + commerce groups
     index = {
-        "apis": {
+        "raw_domains": {
             api: {"root": f"openapi/domains/{api}/_index.json"}
             for api in specs
             if api != "webhooks" and (domains_dir / api).exists()
-        }
+        },
+        "commerce_groups": {"root": "openapi/commerce/_index.json"},
+        "bundled_release": {
+            api: f"artifacts/bundled/{api}.json"
+            for api in ("admin-api", "store-api")
+        },
     }
     save_json(root / "openapi" / "index.json", index)
+
+    # Eski dosya adı kaldırıldı (v2.1)
+    legacy_mcp = metadata_dir / "mcp-tools-candidate.yaml"
+    if legacy_mcp.exists():
+        legacy_mcp.unlink()
 
     if not args.skip_lint:
         run_redocly_lint(root)

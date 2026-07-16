@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,8 +20,11 @@ jobs:
 
       - name: Build bundled artifacts
         run: |
-          pip install pyyaml requests
+          pip install -r requirements.txt
           python scripts/build_pipeline.py --skip-lint
+
+      - name: Quality gates
+        run: python scripts/validate_quality.py
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2

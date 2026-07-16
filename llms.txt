@@ -4,8 +4,8 @@
 
 ⚠️ **Unofficial community mirror** — see README.md.
 
-Base URL (Admin): `https://magaza-adiniz.myideasoft.com/admin-api`
-Base URL (Store): `https://magaza-adiniz.myideasoft.com/api`
+Base URL: `https://magaza-adiniz.myideasoft.com`
+Admin paths: `/admin-api/...` | Store paths: `/api/...`
 Source: https://apidoc.ideasoft.dev
 
 ## Stats (auto-generated)
@@ -21,6 +21,9 @@ Source: https://apidoc.ideasoft.dev
 - [Admin API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/admin-api.md)
 - [Store API](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/store-api.md)
 - [Webhooks](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/docs/webhooks.md)
-- [Capabilities](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/metadata/capabilities.yaml)
-- [Domain OpenAPI index](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/openapi/domains/)
-- [Bundled artifacts](https://github.com/atillakesicioglu/ideasoft-api-docs/releases/latest)
+- [Capabilities matrix](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/metadata/capabilities.yaml)
+- [Commerce tools (curated MCP)](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/metadata/commerce-tools.yaml)
+- [MCP endpoint candidates (raw)](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/metadata/mcp-endpoint-candidates.yaml)
+- [Raw domain OpenAPI](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/openapi/domains/)
+- [Commerce grouped OpenAPI](https://github.com/atillakesicioglu/ideasoft-api-docs/blob/main/openapi/commerce/)
+- [Bundled release specs](https://github.com/atillakesicioglu/ideasoft-api-docs/releases/latest)

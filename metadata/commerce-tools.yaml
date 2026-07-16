@@ -1,0 +1,374 @@
+schema_version: '2.1'
+description: Küratörlü, platformdan bağımsız MCP commerce tool tanımları.
+tools:
+- name: search_products
+  description: Ürünleri listele veya filtrele.
+  platform_agnostic: true
+  authentication: &id001
+    type: oauth2
+    flow: client_credentials
+    token_url: https://magaza-adiniz.myideasoft.com/oauth/v2/token
+    expose_to_model: false
+  runtime_configuration: &id002
+    base_url:
+      description: Mağaza base URL (ör. https://magaza-adiniz.myideasoft.com)
+      default: https://magaza-adiniz.myideasoft.com
+      expose_to_model: false
+    access_token:
+      description: OAuth 2.0 Bearer token — MCP runtime tarafından enjekte edilir
+      expose_to_model: false
+      security_note: Token tool input, tool output veya loglarda bulunmamalıdır.
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/products
+    operation_id: 6hvi6as48mv56
+    summary: Product LIST
+  - api: store-api
+    method: GET
+    path: /api/products
+    operation_id: qsr9fu2u1lrlh
+    summary: Product LIST
+- name: get_product
+  description: Tek ürün detayını getir.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/products/{id}
+    operation_id: cgov84whtjhzn
+    summary: Product GET
+  - api: store-api
+    method: GET
+    path: /api/products/{id}
+    operation_id: p0r4e04klu229
+    summary: Product GET
+- name: create_product
+  description: Yeni ürün oluştur.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: POST
+    path: /admin-api/products
+    operation_id: 8pzfiy7v4vow9
+    summary: Product POST
+- name: update_product
+  description: Mevcut ürünü güncelle.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: PUT
+    path: /admin-api/products/{id}
+    operation_id: p7r7yfxlfjma9
+    summary: Product PUT
+  - api: store-api
+    method: PUT
+    path: /api/products/{id}
+    operation_id: vyvlvovhvs74f
+    summary: Product PUT
+- name: update_product_price
+  description: Ürün fiyatını güncelle.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings: []
+- name: update_inventory
+  description: Stok / envanter güncelle.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings: []
+- name: list_categories
+  description: Kategorileri listele.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/categories
+    operation_id: 20vhu24qmintk
+    summary: Category LIST
+  - api: store-api
+    method: GET
+    path: /api/categories
+    operation_id: ovvbnoui2pfwc
+    summary: Category LIST
+- name: create_category
+  description: Yeni kategori oluştur.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: POST
+    path: /admin-api/categories
+    operation_id: fejso6cwrlaan
+    summary: Category POST
+- name: list_orders
+  description: Siparişleri listele.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/orders
+    operation_id: taanqcwvy12qa
+    summary: Order LIST
+  - api: store-api
+    method: GET
+    path: /api/orders
+    operation_id: g7k3u91q8wzss
+    summary: Order LIST
+- name: get_order
+  description: Tek sipariş detayını getir.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/orders/{id}
+    operation_id: jv852xu184aq9
+    summary: Order GET
+  - api: store-api
+    method: GET
+    path: /api/orders/{id}
+    operation_id: 8ssspm2fl1kyl
+    summary: Order GET
+- name: update_order_status
+  description: Sipariş durumunu güncelle.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: PUT
+    path: /admin-api/orders/{id}
+    operation_id: wdqlg4iwn7zt8
+    summary: Order PUT
+- name: list_customers
+  description: Müşterileri / üyeleri listele.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/members
+    operation_id: f7kt5dptzzqfe
+    summary: Member LIST
+  - api: store-api
+    method: GET
+    path: /api/members
+    operation_id: mfk11r3sdcxas
+    summary: Member LIST
+- name: create_discount
+  description: İndirim / kupon oluştur.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: POST
+    path: /admin-api/coupons
+    operation_id: t007nrr160dtu
+    summary: Coupon POST
+  - api: admin-api
+    method: POST
+    path: /admin-api/promotions
+    operation_id: 55n3ci9fvlme4
+    summary: Promotion POST
+- name: get_sales_summary
+  description: Satış özeti / istatistik getir.
+  platform_agnostic: true
+  authentication: *id001
+  runtime_configuration: *id002
+  mappings:
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/daily_orders
+    operation_id: rcadydebms0t7
+    summary: Statistic OrderChartsDailyAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/product_orders
+    operation_id: hpfsibxb6gvyw
+    summary: Statistic ProductOrdersChartAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/daily_bandwidths
+    operation_id: cyati5q2krvx5
+    summary: Statistic BandwidthChartDailyAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/member_order_price
+    operation_id: g73xp8r9zapm2
+    summary: Statistic MemberOrderPriceChartAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/monthly_bandwidths
+    operation_id: hmudsleu6537f
+    summary: Statistic BandwidthChartMonthlyAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/monthly_orders
+    operation_id: 2ekt18jy134d8
+    summary: Statistic OrderChartsMonthlyAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/member_order_count
+    operation_id: ytfpyyxmqxg5m
+    summary: Statistic MemberOrderCountChartAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/daily_members
+    operation_id: 4v7k2k3bal5se
+    summary: Statistic MemberChartsDaily GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/daily_payments
+    operation_id: 8a6eo9u1f4fie
+    summary: Statistic PaymentOrderChartsDailyAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/monthly_payments
+    operation_id: zvfst3unn8ghg
+    summary: Statistic PaymentMonthlyChartsDailyAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/monthly_members
+    operation_id: gnkamvd1h5h10
+    summary: Statistic MemberChartsMonthly GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/order_shipping_types
+    operation_id: vrf83fmqpbjjf
+    summary: Statistic OrderShippingTypeChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/product_rates
+    operation_id: f0bgjsm8z8889
+    summary: Statistic ProductRateAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/monthly_page_views
+    operation_id: z4yxfu6ksjqza
+    summary: Statistic MonthlyPageViewsChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/refunded_products
+    operation_id: wsf9whopbp1ox
+    summary: Statistic RefundedProductsChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/order_device_types
+    operation_id: d5bp2j83htohh
+    summary: Statistic OrderDeviceTypeChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/order_member_percentage
+    operation_id: gva8s97hwcykr
+    summary: Statistic OrderMemberPercentageChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/daily_page_views
+    operation_id: 7o4adw4y0abch
+    summary: Statistic DailyPageViewsChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/order_locations
+    operation_id: bpi7mtfme0hlv
+    summary: Statistic OrderLocationChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/order_payment_types
+    operation_id: kng4f2hegldav
+    summary: Statistic OrderPaymentTypeChartsAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/sale_sources
+    operation_id: dmgf4lhltgttt
+    summary: Statistic SaleSourceChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/search_statistics
+    operation_id: 2byqo6f88wx2m
+    summary: Statistic SearchStatisticsData GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/statistics/product_views
+    operation_id: 258rf11juhyrg
+    summary: Statistic ProductViewsChart GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/product
+    operation_id: a1aqs05280s4m
+    summary: Report ProductReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/member_based_order
+    operation_id: f0nz5q9lotpgu
+    summary: Report MemberBasedOrderReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/product_sale
+    operation_id: vipa3s9pmawgp
+    summary: Report ProductSaleReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/order
+    operation_id: 4v8w2jljd9k9w
+    summary: Report OrderReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/member_based_payment
+    operation_id: yiukaq822ckkt
+    summary: Report MemberBasedPaymentReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/product_cost_analysis
+    operation_id: fnuxd6qoyrbuf
+    summary: Report ProductCostAnalysisReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/price_list
+    operation_id: wjrh73mu1allu
+    summary: Report PriceListReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/member
+    operation_id: uubx8rgb8eipb
+    summary: Report MemberReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/maillist
+    operation_id: ayf1w0p3p0wn5
+    summary: Report MaillistReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/no_stock_product
+    operation_id: qsjal6aytmp0q
+    summary: Report NoStockProductReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/payment
+    operation_id: cosw1lgbo2al6
+    summary: Report PaymentReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/stock_warning
+    operation_id: 7rvf98ogri742
+    summary: Report StockWarningReportAction GET
+  - api: admin-api
+    method: GET
+    path: /admin-api/report/member_based_product/{id}
+    operation_id: 2eb88cm5na3va
+    summary: Report MemberBasedProductReportAction GET
